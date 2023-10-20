@@ -1,4 +1,7 @@
 .sidebar {
+  position: sticky;
+  top: 0;
+  align-items: flex-start;
   width: 200px;
   border-radius: 12px;
   margin: 10px;
