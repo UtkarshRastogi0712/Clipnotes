@@ -1,6 +1,6 @@
 .col {
   display: flex;
-  height: auto;
   width: auto;
   background-color: #161b21;
+  background-size: auto;
 }

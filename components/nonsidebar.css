@@ -3,9 +3,6 @@
   display: flex;
   flex-direction: column;
 }
-.canvas {
-  height: 90vh;
-}
 .note-title {
   padding-left: 10px;
   width: 100%;

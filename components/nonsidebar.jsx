@@ -12,7 +12,7 @@ function NonSideBar() {
           <h1>Notes</h1>
         </div>
         <dev className="cards">
-          {Array(4).fill(<Card />)}
+          {Array(10).fill(<Card />)}
           <Card />
         </dev>
       </div>
