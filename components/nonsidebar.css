@@ -15,7 +15,7 @@
 h1 {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #eef0f4;
+  color: hsl(220, 21%, 90%);
 }
 .cards {
   display: flex;
