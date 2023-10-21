@@ -1,7 +1,11 @@
 .non-side-bar {
-  width: calc(100vw - 200px);
+  width: calc(100vw - 210px);
   display: flex;
+  margin-right: 20px;
   flex-direction: column;
+}
+.canvas {
+  padding-bottom: 10px;
 }
 .note-title {
   padding-left: 10px;

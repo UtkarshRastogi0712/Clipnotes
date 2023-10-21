@@ -1,7 +1,7 @@
 .top-bar {
   position: sticky;
-  top: 0;
-  width: calc(100vw - 230px);
+  top: 10px;
+  width: calc(100vw - 240px);
   height: 80px;
   margin-top: 10px;
   margin-right: 10px;
