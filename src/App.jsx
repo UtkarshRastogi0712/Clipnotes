@@ -3,7 +3,7 @@ import "./App.css";
 import Sidebar from "../components/sidebar";
 import NonSideBar from "../components/nonsidebar";
 import Add from "../components/add";
-import Newnote from "../components/newnote";
+import Note from "../components/note";
 
 function App() {
   const [newNote, setNotes] = useState(false);
@@ -16,7 +16,7 @@ function App() {
     <div className="col">
       <Sidebar />
       <NonSideBar />
-      {newNote && <Newnote toggle={Toggle} />}
+      {newNote && <Note toggle={Toggle} />}
       <Add toggle={Toggle} />
     </div>
   );
