@@ -10,6 +10,9 @@ function NonSideBar() {
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
   };
+  const no_title = {
+    content: "Lorem ipsum",
+  };
 
   return (
     <div className="non-side-bar">
@@ -19,7 +22,15 @@ function NonSideBar() {
           <h1>Notes</h1>
         </div>
         <dev className="cards">
-          {Array(5).fill(<Card title={data.title} content={data.content} />)}
+          {Array(5).fill(
+            <Card title={data.title ? data.title : ""} content={data.content} />
+          )}
+          {Array(5).fill(
+            <Card
+              title={no_title.title ? no_title.title : ""}
+              content={no_title.content}
+            />
+          )}
         </dev>
       </div>
     </div>

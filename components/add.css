@@ -1,0 +1,29 @@
+.main-bar {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background-color: #1d232c;
+}
+.vert-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  width: 10px;
+  border-radius: 5px;
+  background-color: #3b4758;
+  transform: translate(-50%, -50%);
+}
+.horz-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10px;
+  width: 40px;
+  border-radius: 5px;
+  background-color: #3b4758;
+  transform: translate(-50%, -50%);
+}
