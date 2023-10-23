@@ -20,14 +20,15 @@ function Note(props) {
     <div>
       <div className="modal-background" onClick={props.toggle}></div>
       <div className="note-body">
-        <input
-          type="text"
-          id="title"
-          name="title"
+        <textarea
+          className="modal-title"
+          id="title-note"
+          name="title-note"
           value={title}
           onChange={handleTitle}
         />
         <textarea
+          className="modal-content"
           id="content"
           name="content"
           value={content}

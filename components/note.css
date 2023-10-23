@@ -22,3 +22,38 @@
   border-radius: 12px;
   filter: blur();
 }
+.modal-title {
+  text-size-adjust: none;
+  overflow: hidden;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: hsl(220, 21%, 90%);
+  margin: 1.5rem;
+  margin-bottom: 0.5rem;
+  width: calc(100% - 2rem);
+  height: 2rem;
+  background-color: #1d232c;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+}
+.modal-content {
+  text-size-adjust: none;
+  overflow: hidden;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: hsl(220, 21%, 85%);
+  margin: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: calc(100% - 2rem);
+  height: 100%;
+  background-color: #1d232c;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+}

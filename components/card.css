@@ -12,11 +12,13 @@
   margin-left: 10px;
 }
 .title {
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: hsl(220, 21%, 90%);
 }
 .content {
+  font-family: "Roboto", sans-serif;
   overflow: hidden;
   max-height: 200px;
   padding-top: 10px;

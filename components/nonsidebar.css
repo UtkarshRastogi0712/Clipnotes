@@ -13,6 +13,7 @@
   height: 1.3rem;
 }
 h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
   font-weight: 800;
   color: hsl(220, 21%, 90%);
