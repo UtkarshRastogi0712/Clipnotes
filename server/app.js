@@ -1,5 +1,6 @@
 const express = require("express");
 const createError = require("http-errors");
+const cors = require("cors");
 require("dotenv").config();
 const Router = require("./Notes/notes.router.js");
 require("./Helpers/database");
@@ -7,6 +8,7 @@ require("./Helpers/database");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use("/notes", Router);
 

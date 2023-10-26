@@ -16,9 +16,31 @@ function Note(props) {
     setContent(event.target.value);
   };
 
+  const toggleNote = () => {
+    const note = {
+      title: title,
+      content: content,
+    };
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(note),
+    };
+
+    fetch("http://192.168.1.7:3000/notes/", options)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+
+    props.toggle();
+  };
+
   return (
     <div>
-      <div className="modal-background" onClick={props.toggle}></div>
+      <div className="modal-background" onClick={toggleNote}></div>
       <div className="note-body">
         <textarea
           className="modal-title"
