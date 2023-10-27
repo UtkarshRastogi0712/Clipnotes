@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="col">
       <Sidebar />
-      <NonSideBar />
+      <NonSideBar toggle={newNote} />
       {newNote && <Note toggle={Toggle} />}
       <Add toggle={Toggle} />
     </div>

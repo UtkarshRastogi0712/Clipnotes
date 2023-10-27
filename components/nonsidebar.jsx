@@ -1,16 +1,29 @@
+import { useEffect, useState } from "react";
 import "./nonsidebar.css";
 import React from "react";
 import Topbar from "./topbar";
 import Card from "./card";
 
-function NonSideBar() {
-  const data = {
-    title:
-      "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+function NonSideBar(props) {
+  const [notes, setNotes] = useState([]);
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
-  const no_title = {
+
+  useEffect(() => {
+    fetch("http://localhost:3000/notes/", options)
+      .then((response) => response.json())
+      .then((data) => setNotes(data))
+      .catch((error) => console.log("Error", error));
+    console.log(notes);
+  }, [props.toggle]);
+
+  const temp_data = {
+    title: "Lorem",
     content: "Lorem ipsum",
   };
 
@@ -23,12 +36,9 @@ function NonSideBar() {
         </div>
         <dev className="cards">
           {Array(5).fill(
-            <Card title={data.title ? data.title : ""} content={data.content} />
-          )}
-          {Array(5).fill(
             <Card
-              title={no_title.title ? no_title.title : ""}
-              content={no_title.content}
+              title={temp_data.title ? temp_data.title : ""}
+              content={temp_data.content}
             />
           )}
         </dev>

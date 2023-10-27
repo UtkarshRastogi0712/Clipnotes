@@ -17,6 +17,7 @@ function Note(props) {
   };
 
   const toggleNote = () => {
+    console.log("Trying to post data");
     const note = {
       title: title,
       content: content,
@@ -30,7 +31,7 @@ function Note(props) {
       body: JSON.stringify(note),
     };
 
-    fetch("http://192.168.1.7:3000/notes/", options)
+    fetch("http://localhost:3000/notes/", options)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
