@@ -5,23 +5,6 @@ import Topbar from "./topbar";
 import Card from "./card";
 
 function NonSideBar(props) {
-  const [notes, setNotes] = useState([]);
-
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  useEffect(() => {
-    fetch("http://localhost:3000/notes/", options)
-      .then((response) => response.json())
-      .then((data) => setNotes(data))
-      .catch((error) => console.log("Error", error));
-    console.log(notes);
-  }, [props.toggle]);
-
   const temp_data = {
     title: "Lorem",
     content: "Lorem ipsum",
