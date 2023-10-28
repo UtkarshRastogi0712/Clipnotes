@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Sidebar from "../components/sidebar";
 import NonSideBar from "../components/nonsidebar";
@@ -12,6 +12,10 @@ function App() {
   const Toggle = () => {
     setNotes(!newNote);
   };
+
+  useEffect(() => {
+    UpdateNotes();
+  }, [notes]);
 
   const UpdateNotes = () => {
     const options = {
