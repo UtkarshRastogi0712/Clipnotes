@@ -18,12 +18,15 @@ function NonSideBar(props) {
           <h1>Notes</h1>
         </div>
         <dev className="cards">
-          {Array(5).fill(
-            <Card
-              title={temp_data.title ? temp_data.title : ""}
-              content={temp_data.content}
-            />
-          )}
+          {props.cards &&
+            props.cards.data.map((card) => {
+              return (
+                <Card
+                  title={card.title ? card.title : ""}
+                  content={card.content}
+                />
+              );
+            })}
         </dev>
       </div>
     </div>

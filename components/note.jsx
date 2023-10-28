@@ -16,7 +16,12 @@ function Note(props) {
     setContent(event.target.value);
   };
 
-  const createNote = async (note) => {
+  const toggleNote = async () => {
+    const note = {
+      title: title,
+      content: content,
+    };
+
     const options = {
       method: "POST",
       headers: {
@@ -25,29 +30,11 @@ function Note(props) {
       body: JSON.stringify(note),
     };
 
-    let createdNote = null;
-
     fetch("http://localhost:3000/notes/", options)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        createdNote = data;
-        return createdNote;
-      })
+      .then((data) => console.log(data))
+      .then(props.update())
       .catch((error) => console.error(error));
-  };
-
-  const toggleNote = async () => {
-    const note = {
-      title: title,
-      content: content,
-    };
-
-    const data = await createNote(note);
-    console.log(data);
-    if (data) {
-      props.update();
-    }
 
     props.toggle();
   };

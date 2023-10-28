@@ -7,7 +7,7 @@ import Note from "../components/note";
 
 function App() {
   const [newNote, setNotes] = useState(false);
-  const [notes, setNewNotes] = useState([]);
+  const [notes, setNewNotes] = useState(null);
 
   const Toggle = () => {
     setNotes(!newNote);
@@ -23,15 +23,16 @@ function App() {
 
     fetch("http://localhost:3000/notes/", options)
       .then((response) => response.json())
-      .then((data) => setNewNotes(data))
+      .then((data) => {
+        setNewNotes(data);
+      })
       .catch((error) => console.log("Error", error));
-    console.log(notes);
   };
 
   return (
     <div className="col">
       <Sidebar />
-      <NonSideBar />
+      <NonSideBar cards={notes} />
       {newNote && <Note toggle={Toggle} update={UpdateNotes} />}
       <Add toggle={Toggle} />
     </div>
