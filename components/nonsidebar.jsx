@@ -24,6 +24,7 @@ function NonSideBar(props) {
                 <Card
                   title={card.title ? card.title : ""}
                   content={card.content}
+                  toggle={props.toggle}
                 />
               );
             })}

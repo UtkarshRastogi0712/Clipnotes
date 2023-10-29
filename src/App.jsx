@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="col">
       <Sidebar />
-      <NonSideBar cards={notes} />
+      <NonSideBar cards={notes} toggle={Toggle} />
       {newNote && <Note toggle={Toggle} update={UpdateNotes} />}
       <Add toggle={Toggle} />
     </div>
