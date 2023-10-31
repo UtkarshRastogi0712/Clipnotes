@@ -3,9 +3,11 @@ import React from "react";
 import { useState } from "react";
 
 function Note(props) {
-  const [title, setTitle] = useState(props.title ? props.title : "Title");
+  const [title, setTitle] = useState(
+    props.title == null ? "Title" : props.title
+  );
   const [content, setContent] = useState(
-    props.content ? props.content : "Content"
+    props.content == null ? "Content" : props.content
   );
 
   const handleTitle = (event) => {

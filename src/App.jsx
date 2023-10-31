@@ -8,6 +8,18 @@ import Note from "../components/note";
 function App() {
   const [newNote, setNotes] = useState(false);
   const [notes, setNewNotes] = useState(null);
+  const [cardTitle, setCardTitle] = useState(null);
+  const [cardContent, setCardContent] = useState(null);
+
+  const cardClicked = (newTitle, newContent) => {
+    setCardContent(newContent);
+    setCardTitle(newTitle);
+  };
+
+  const cardRefresh = () => {
+    setCardContent(null);
+    setCardTitle(null);
+  };
 
   const Toggle = () => {
     setNotes(!newNote);
@@ -36,8 +48,15 @@ function App() {
   return (
     <div className="col">
       <Sidebar />
-      <NonSideBar cards={notes} toggle={Toggle} />
-      {newNote && <Note toggle={Toggle} update={UpdateNotes} />}
+      <NonSideBar cards={notes} toggle={Toggle} clicked={cardClicked} />
+      {newNote && (
+        <Note
+          toggle={Toggle}
+          update={UpdateNotes}
+          title={cardTitle ? cardTitle : null}
+          content={cardContent ? cardContent : null}
+        />
+      )}
       <Add toggle={Toggle} />
     </div>
   );
