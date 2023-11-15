@@ -20,46 +20,35 @@ function Note(props) {
   };
 
   const toggleNote = async () => {
+    let note, methodChosen, uri;
     if (_id == "_id") {
-      const note = {
+      note = {
         title: title,
         content: content,
       };
-
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(note),
-      };
-
-      fetch("http://localhost:3000/notes/", options)
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .then(props.update())
-        .catch((error) => console.error(error));
+      methodChosen = "POST";
+      uri = "http://localhost:3000/notes/";
     } else {
-      const note = {
+      note = {
         id: _id,
         title: title,
         content: content,
       };
-
-      const options = {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(note),
-      };
-
-      fetch(`http://localhost:3000/notes/${_id}`, options)
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .then(props.update())
-        .catch((error) => console.error(error));
+      methodChosen = "PUT";
+      uri = `http://localhost:3000/notes/${_id}`;
     }
+    const options = {
+      method: methodChosen,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(note),
+    };
+
+    fetch(uri, options)
+      .then((response) => response.json())
+      .then(props.update())
+      .catch((error) => console.error(error));
     props.toggle();
   };
 
