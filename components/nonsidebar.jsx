@@ -24,6 +24,7 @@ function NonSideBar(props) {
                 <Card
                   title={card.title ? card.title : ""}
                   content={card.content ? card.content : ""}
+                  _id={card._id ? card._id : ""}
                   toggle={props.toggle}
                   clicked={props.clicked}
                 />

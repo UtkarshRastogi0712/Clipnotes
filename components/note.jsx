@@ -9,6 +9,7 @@ function Note(props) {
   const [content, setContent] = useState(
     props.content == null ? "Content" : props.content
   );
+  const [_id, set_id] = useState(props._id == null ? "_id" : props._id);
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -19,25 +20,35 @@ function Note(props) {
   };
 
   const toggleNote = async () => {
-    const note = {
-      title: title,
-      content: content,
-    };
-
+    let note, methodChosen, uri;
+    if (_id == "_id") {
+      note = {
+        title: title,
+        content: content,
+      };
+      methodChosen = "POST";
+      uri = "http://localhost:3000/notes/";
+    } else {
+      note = {
+        id: _id,
+        title: title,
+        content: content,
+      };
+      methodChosen = "PUT";
+      uri = `http://localhost:3000/notes/${_id}`;
+    }
     const options = {
-      method: "POST",
+      method: methodChosen,
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(note),
     };
 
-    fetch("http://localhost:3000/notes/", options)
+    fetch(uri, options)
       .then((response) => response.json())
-      .then((data) => console.log(data))
       .then(props.update())
       .catch((error) => console.error(error));
-
     props.toggle();
   };
 

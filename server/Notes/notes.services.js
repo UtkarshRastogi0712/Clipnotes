@@ -11,6 +11,23 @@ const createNote = async (note) => {
   }
 };
 
+const updateNote = async (id, updatedData) => {
+  if (!updatedData || !Object.keys(updatedData).length > 0) {
+    throw new Error("updated data is required");
+  }
+  try {
+    const note = await Note.findOneAndUpdate(
+      { _id: id },
+      { $set: updatedData },
+      { new: true }
+    );
+    return note;
+  } catch (err) {
+    console.error(err);
+    throw new Error(err);
+  }
+};
+
 const getNote = async (id) => {
   try {
     const note = await Note.findOne({ _id: id });
@@ -31,4 +48,4 @@ const getAllNotes = async () => {
   }
 };
 
-module.exports = { createNote, getNote, getAllNotes };
+module.exports = { createNote, getNote, getAllNotes, updateNote };
