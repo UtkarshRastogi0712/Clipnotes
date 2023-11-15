@@ -41,19 +41,20 @@ function Note(props) {
         .catch((error) => console.error(error));
     } else {
       const note = {
+        id: _id,
         title: title,
         content: content,
       };
 
       const options = {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(note),
       };
 
-      fetch("http://localhost:3000/notes/", options)
+      fetch(`http://localhost:3000/notes/${_id}`, options)
         .then((response) => response.json())
         .then((data) => console.log(data))
         .then(props.update())
