@@ -10,15 +10,12 @@ function App() {
   const [notes, setNewNotes] = useState(null);
   const [cardTitle, setCardTitle] = useState(null);
   const [cardContent, setCardContent] = useState(null);
+  const [card_id, setCard_id] = useState(null);
 
-  const cardClicked = (newTitle, newContent) => {
+  const cardClicked = (newTitle, newContent, new_id) => {
     setCardContent(newContent);
     setCardTitle(newTitle);
-  };
-
-  const cardRefresh = () => {
-    setCardContent(null);
-    setCardTitle(null);
+    setCard_id(new_id);
   };
 
   const Toggle = () => {
@@ -55,6 +52,7 @@ function App() {
           update={UpdateNotes}
           title={cardTitle ? cardTitle : null}
           content={cardContent ? cardContent : null}
+          _id={card_id ? card_id : null}
         />
       )}
       <Add toggle={Toggle} />

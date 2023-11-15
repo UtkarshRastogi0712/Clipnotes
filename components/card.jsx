@@ -3,8 +3,8 @@ import React from "react";
 
 function Card(props) {
   const cardClick = () => {
-    console.log(props.title, props.content);
-    props.clicked(props.title, props.content);
+    console.log(props.title, props.content, props._id);
+    props.clicked(props.title, props.content, props._id);
     props.toggle();
   };
   return (
