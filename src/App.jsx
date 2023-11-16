@@ -22,6 +22,13 @@ function App() {
     setNotes(!newNote);
   };
 
+  const NewNoteToggle = () => {
+    setCardContent(null);
+    setCardTitle(null);
+    setCard_id(null);
+    Toggle();
+  };
+
   useEffect(() => {
     UpdateNotes();
   }, [notes]);
@@ -41,7 +48,7 @@ function App() {
       })
       .catch((error) => console.log("Error", error));
   };
-
+  /*
   const rightClicked = (_id) => {
     const options = {
       method: "DELETE",
@@ -58,7 +65,7 @@ function App() {
       })
       .catch((error) => console.log("Error", error));
   };
-
+*/
   return (
     <div className="col">
       <Sidebar />
@@ -66,7 +73,7 @@ function App() {
         cards={notes}
         toggle={Toggle}
         clicked={cardClicked}
-        rightClicked={rightClicked}
+        //rightClicked={rightClicked}
       />
       {newNote && (
         <Note
@@ -77,7 +84,7 @@ function App() {
           _id={card_id ? card_id : null}
         />
       )}
-      <Add toggle={Toggle} />
+      <Add toggle={NewNoteToggle} />
     </div>
   );
 }
