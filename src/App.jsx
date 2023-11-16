@@ -42,10 +42,31 @@ function App() {
       .catch((error) => console.log("Error", error));
   };
 
+  const rightClicked = (id) => {
+    const options = {
+      method: "DELETE",
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetch(`http://localhost:3000/notes/${id}`, options)
+      .then((response) => response.json())
+      .then((data) => {
+        setNotes(data);
+      })
+      .catch((error) => console.log("Error", error));
+  };
+
   return (
     <div className="col">
       <Sidebar />
-      <NonSideBar cards={notes} toggle={Toggle} clicked={cardClicked} />
+      <NonSideBar
+        cards={notes}
+        toggle={Toggle}
+        clicked={cardClicked}
+        rightClicked={rightClicked}
+      />
       {newNote && (
         <Note
           toggle={Toggle}
