@@ -27,7 +27,7 @@ function NonSideBar(props) {
                   _id={card._id ? card._id : ""}
                   toggle={props.toggle}
                   clicked={props.clicked}
-                  //rightClicked={props.rightClicked}
+                  rightClicked={props.rightClicked}
                 />
               );
             })}

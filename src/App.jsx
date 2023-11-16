@@ -48,7 +48,6 @@ function App() {
       })
       .catch((error) => console.log("Error", error));
   };
-  /*
   const rightClicked = (_id) => {
     const options = {
       method: "DELETE",
@@ -59,13 +58,11 @@ function App() {
     };
 
     fetch(`http://localhost:3000/notes/${_id}`, options)
-      .then((response) => response.json())
-      .then((data) => {
-        setNotes(data);
+      .then(() => {
+        console.log("Deleted");
       })
       .catch((error) => console.log("Error", error));
   };
-*/
   return (
     <div className="col">
       <Sidebar />
@@ -73,7 +70,7 @@ function App() {
         cards={notes}
         toggle={Toggle}
         clicked={cardClicked}
-        //rightClicked={rightClicked}
+        rightClicked={rightClicked}
       />
       {newNote && (
         <Note

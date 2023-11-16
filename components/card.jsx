@@ -7,13 +7,19 @@ function Card(props) {
     props.clicked(props.title, props.content, props._id);
     props.toggle();
   };
-  /*
   const cardRightClicked = () => {
     console.log("Right click");
     props.rightClicked(props._id);
-  };*/
+  };
   return (
-    <div className="card" onClick={cardClick}>
+    <div
+      className="card"
+      onClick={cardClick}
+      onContextMenu={(e) => {
+        e.preventDefault();
+        cardRightClicked();
+      }}
+    >
       <div className="title">{props.title}</div>
       <div className="content">{props.content}</div>
     </div>
