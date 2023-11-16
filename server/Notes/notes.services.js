@@ -48,4 +48,14 @@ const getAllNotes = async () => {
   }
 };
 
-module.exports = { createNote, getNote, getAllNotes, updateNote };
+const deleteNote = async (id) => {
+  try {
+    const deletedNote = await Note.deleteOne({ _id: id });
+    return deletedNote;
+  } catch (err) {
+    console.error(err);
+    throw new Error(err);
+  }
+};
+
+module.exports = { createNote, getNote, getAllNotes, updateNote, deleteNote };

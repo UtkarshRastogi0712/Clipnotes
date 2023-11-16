@@ -3,8 +3,23 @@ const {
   getNote,
   getAllNotes,
   updateNote,
+  deleteNote,
 } = require("./notes.services");
 
+const deleteNoteController = async (req, res) => {
+  try {
+    const note = await deleteNote(req.params.id);
+    if (!note) {
+      return res
+        .status(200)
+        .json({ success: false, message: "Note not found" });
+    }
+    res.status(200).json({ success: true, data: note });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+};
 const createNoteController = async (req, res) => {
   try {
     const note = await createNote(req.body);
@@ -64,4 +79,5 @@ module.exports = {
   getNoteController,
   getAllNotesController,
   updateNoteController,
+  deleteNoteController,
 };

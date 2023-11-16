@@ -42,15 +42,16 @@ function App() {
       .catch((error) => console.log("Error", error));
   };
 
-  const rightClicked = (id) => {
+  const rightClicked = (_id) => {
     const options = {
       method: "DELETE",
       header: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ id: _id }),
     };
 
-    fetch(`http://localhost:3000/notes/${id}`, options)
+    fetch(`http://localhost:3000/notes/${_id}`, options)
       .then((response) => response.json())
       .then((data) => {
         setNotes(data);

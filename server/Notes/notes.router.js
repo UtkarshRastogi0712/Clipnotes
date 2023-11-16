@@ -4,11 +4,13 @@ const {
   getNoteController,
   getAllNotesController,
   updateNoteController,
+  deleteNoteController,
 } = require("./notes.controller");
 
 const router = Router();
 
 router.post("/", createNoteController);
+router.delete("/:id", deleteNoteController);
 router.put("/:id", updateNoteController);
 router.get("/:id", getNoteController);
 router.get("/", getAllNotesController);
