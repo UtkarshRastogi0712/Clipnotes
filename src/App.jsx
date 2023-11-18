@@ -41,7 +41,7 @@ function App() {
       },
     };
 
-    fetch("http://localhost:3000/notes/", options)
+    fetch("http://192.168.1.10:3000/notes/", options)
       .then((response) => response.json())
       .then((data) => {
         setNewNotes(data);
@@ -57,7 +57,7 @@ function App() {
       body: JSON.stringify({ id: _id }),
     };
 
-    fetch(`http://localhost:3000/notes/${_id}`, options)
+    fetch(`http://192.168.1.10:3000/notes/${_id}`, options)
       .then(() => {
         console.log("Deleted");
       })

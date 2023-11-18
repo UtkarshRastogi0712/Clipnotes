@@ -27,7 +27,7 @@ function Note(props) {
         content: content,
       };
       methodChosen = "POST";
-      uri = "http://localhost:3000/notes/";
+      uri = "http://192.168.1.10:3000/notes/";
     } else {
       note = {
         id: _id,
@@ -35,7 +35,7 @@ function Note(props) {
         content: content,
       };
       methodChosen = "PUT";
-      uri = `http://localhost:3000/notes/${_id}`;
+      uri = `http://192.168.1.10:3000/notes/${_id}`;
     }
     const options = {
       method: methodChosen,
